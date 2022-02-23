@@ -1,6 +1,7 @@
 Function.prototype.myBind = function (object, ...args) {
-    let parentFunc = this
+    let parentFunc = this // "this here pointing to parent function"
     return function (...args2) {
+        // since this function will have a normal call so "this" here will point to global object
         parentFunc.apply(object, [...args, ...args2])
     }
 }
